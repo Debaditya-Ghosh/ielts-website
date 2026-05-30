@@ -27,9 +27,17 @@ window.addEventListener("scroll", () => {
 planButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selected = button.dataset.plan;
+    const selectedCard = document.querySelector(`[data-plan-card="${selected}"]`);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     planButtons.forEach((item) => item.classList.toggle("active", item === button));
     planCards.forEach((card) => {
       card.classList.toggle("selected", card.dataset.planCard === selected);
+    });
+
+    selectedCard?.scrollIntoView({
+      behavior: reducedMotion ? "auto" : "smooth",
+      block: "start"
     });
   });
 });

@@ -312,45 +312,6 @@ section,
   box-shadow: var(--shadow);
 }
 
-.progress-card {
-  position: absolute;
-  right: -18px;
-  bottom: 28px;
-  width: min(230px, 54%);
-  padding: 18px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.progress-card span {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.progress-card strong {
-  display: block;
-  margin-top: 4px;
-  font-size: 1.45rem;
-}
-
-.mini-bars {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: end;
-  gap: 7px;
-  height: 70px;
-  margin-top: 14px;
-}
-
-.mini-bars i {
-  height: var(--h);
-  background: linear-gradient(180deg, var(--coral), var(--teal));
-  border-radius: 4px 4px 0 0;
-}
-
 .skill-overview,
 .formats,
 .plans,
@@ -882,6 +843,7 @@ section,
   flex-direction: column;
   min-height: 520px;
   padding: 30px;
+  scroll-margin-top: 112px;
 }
 
 .price-card.selected {
@@ -1193,11 +1155,6 @@ details p {
   .hero-media img {
     min-height: 0;
     height: 330px;
-  }
-
-  .progress-card {
-    right: 10px;
-    bottom: -30px;
   }
 
   .skill-overview,
