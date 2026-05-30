@@ -171,7 +171,13 @@ section,
 }
 
 .hero h1 {
+  display: inline-block;
   max-width: 720px;
+  padding: 0.12em 0.2em 0.16em;
+  color: var(--paper);
+  background: var(--navy);
+  border-radius: var(--radius);
+  box-shadow: 10px 10px 0 rgba(63, 66, 31, 0.18);
   font-size: clamp(3rem, 6.2vw, 5.45rem);
 }
 
@@ -294,6 +300,10 @@ section,
   font-weight: 740;
 }
 
+.score-strip .trial-offer {
+  flex: 1 1 300px;
+}
+
 .score-strip strong {
   color: var(--coral);
   font-size: 1.35rem;
@@ -307,6 +317,18 @@ section,
 .hero-media img {
   width: 100%;
   height: 540px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.mobile-results-image {
+  display: none;
+}
+
+.mobile-results-image img {
+  width: 100%;
+  height: 330px;
   object-fit: cover;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -1134,8 +1156,12 @@ details p {
 
   .score-strip {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
+  }
+
+  .score-strip .trial-offer {
+    grid-column: 1 / -1;
   }
 
   .score-strip span {
@@ -1151,10 +1177,14 @@ details p {
     font-size: 1.28rem;
   }
 
-  .hero-media,
-  .hero-media img {
-    min-height: 0;
-    height: 330px;
+  .hero-media {
+    display: none;
+  }
+
+  .mobile-results-image {
+    display: block;
+    width: min(100% - 28px, var(--max));
+    margin: 34px auto 0;
   }
 
   .skill-overview,
