@@ -3,6 +3,7 @@ const siteNav = document.querySelector(".site-nav");
 const header = document.querySelector("[data-header]");
 const planButtons = document.querySelectorAll("[data-plan]");
 const planCards = document.querySelectorAll("[data-plan-card]");
+const planLinks = document.querySelectorAll("[data-plan-link]");
 const bookingForm = document.querySelector("#booking-form");
 const formStatus = document.querySelector(".form-status");
 const whatsappButton = document.querySelector("#whatsapp-button");
@@ -20,25 +21,38 @@ siteNav?.addEventListener("click", (event) => {
   }
 });
 
+const selectPlan = (selected, shouldScroll = false) => {
+  const selectedCard = document.querySelector(`[data-plan-card="${selected}"]`);
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  planButtons.forEach((item) => item.classList.toggle("active", item.dataset.plan === selected));
+  planCards.forEach((card) => {
+    card.classList.toggle("selected", card.dataset.planCard === selected);
+  });
+
+  if (shouldScroll) {
+    selectedCard?.scrollIntoView({
+      behavior: reducedMotion ? "auto" : "smooth",
+      block: "start"
+    });
+  }
+};
+
 window.addEventListener("scroll", () => {
   header?.classList.toggle("scrolled", window.scrollY > 20);
 });
 
 planButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const selected = button.dataset.plan;
-    const selectedCard = document.querySelector(`[data-plan-card="${selected}"]`);
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    selectPlan(button.dataset.plan, true);
+  });
+});
 
-    planButtons.forEach((item) => item.classList.toggle("active", item === button));
-    planCards.forEach((card) => {
-      card.classList.toggle("selected", card.dataset.planCard === selected);
-    });
-
-    selectedCard?.scrollIntoView({
-      behavior: reducedMotion ? "auto" : "smooth",
-      block: "start"
-    });
+planLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    selectPlan(link.dataset.planLink, true);
+    history.pushState(null, "", "#plans");
   });
 });
 
