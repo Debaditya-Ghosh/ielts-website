@@ -153,8 +153,8 @@ section,
   grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
   align-items: center;
   gap: 52px;
-  min-height: 720px;
-  padding: 62px 0 56px;
+  min-height: 640px;
+  padding: 34px 0 50px;
 }
 
 .hero h1,
@@ -357,6 +357,14 @@ section,
 .faq,
 .people-section {
   padding: 86px 0;
+}
+
+.skill-overview,
+.paths,
+.plans,
+.results,
+.consult {
+  scroll-margin-top: 104px;
 }
 
 .people-section {
@@ -613,6 +621,28 @@ section,
   align-items: start;
 }
 
+.force-section {
+  padding: 52px 0 0;
+}
+
+.force-panel {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 34px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.force-panel h2 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.15rem, 4.8vw, 4.1rem);
+  line-height: 1.02;
+}
+
 .path-intro {
   position: sticky;
   top: 104px;
@@ -776,6 +806,16 @@ section,
   display: grid;
   gap: 10px;
   margin-top: 28px;
+}
+
+.proof-card {
+  align-self: center;
+  margin-top: 0;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .proof-list span {
@@ -1044,6 +1084,7 @@ details p {
   .about-hero,
   .paths,
   .results,
+  .force-section,
   .consult,
   .tutors,
   .people-section,
@@ -1056,6 +1097,7 @@ details p {
 
   .hero {
     min-height: auto;
+    padding-top: 28px;
   }
 
   .hero-media {
@@ -1120,7 +1162,8 @@ details p {
 
   .hero {
     gap: 34px;
-    padding-top: 42px;
+    padding-top: 24px;
+    padding-bottom: 42px;
   }
 
   .hero h1 {
@@ -1162,10 +1205,15 @@ details p {
   .plans,
   .faq,
   .people-section,
+  .force-section,
   .paths,
   .results,
   .consult {
     padding: 70px 0;
+  }
+
+  .force-section {
+    padding-top: 34px;
   }
 
   .about-hero {
